@@ -35,10 +35,17 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'rspec-rails'
+
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'capybara'
+  gem 'cucumber-rails', :require => false
+  gem 'poltergeist'
+  gem 'capybara-screenshot'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 
 
