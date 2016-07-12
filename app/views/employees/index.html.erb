@@ -1,1 +1,11 @@
-<h1>Helloooo Nikola!!!!</h1>
+<header id="content-header">
+  <h1><%= pluralize(@employees.size, 'Employee') %></h1>
+</header>
+
+<ul id="employees">
+  <% @employees.each do |employee| %>
+    <li>
+      <%= link_to employee.first_name, employee %>
+    </li>
+  <% end %>
+</ul>

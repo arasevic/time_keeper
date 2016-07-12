@@ -1,0 +1,22 @@
+<%= form_for(@employee) do |f| %>
+  <%#= render "shared/errors", object: @employee %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :password, "New Password" %>
+        <%= f.password_field :password, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation, size: 40 %>
+      </li>
+    </ol>
+    <p>
+      <% if @employee.new_record? %>
+        <%= f.submit "Create Account" %>
+      <% else %>
+        <%= f.submit "Update Account" %>
+      <% end %>
+    </p>
+  </fieldset>
+<% end %>
