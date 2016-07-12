@@ -1,0 +1,40 @@
+<%= form_for(@employee) do |f| %>
+
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name%>
+      </li>
+      <li class="required">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </li>
+      
+      <li class="required">
+        <%= f.label :hired_date %>
+        <%= f.date_select :hired_date %>
+      </li>
+
+       <li class="required">
+        <%= f.label :password %>
+        <%= f.password_field :password, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation, size: 40 %>
+
+    </ol>
+    <p>
+      <% if @employee.new_record? %>
+        <%= f.submit "Create Account" %>
+      <% else %>
+        <%= f.submit "Update Account" %>
+      <% end %>
+    </p>
+  </fieldset>
+<% end %>

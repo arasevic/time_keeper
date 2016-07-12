@@ -9,6 +9,7 @@ class EmployeesController < ApplicationController
 
 	def new
 		@employee = Employee.new
+		@work_group = WorkGroup.new
 	end
 
 	def edit 
@@ -24,12 +25,22 @@ class EmployeesController < ApplicationController
     	end
 	end
 
+	def create
+		    @employee = Employee.new(employee_params)
+		    if @employee.save
+		      session[:employee_id] = @employee.id
+		      redirect_to @employee, notice: "New Employee #{employee.last_name}, #{employee.first_name} has been created"
+		    else
+		      render :new
+			end 
+  	end
+
 end
 
 private
   
   def employee_params
-    params.require(:employee).permit(:first_name, :email, :password, :password_confirmation)
+    params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation)
   end
 
   def require_correct_employee

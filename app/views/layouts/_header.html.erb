@@ -9,7 +9,7 @@
     <%= link_to "Account Settings", edit_employee_path(current_employee) %>
     <%= link_to 'Sign Out', session_path, method: :delete, class: 'button' %>
     <% else %>
-    <%#= link_to 'Admin: Create Account', create_path, class: 'button' %>   <%= link_to 'Sign In', new_session_path, class: 'button' %>
+    <%= link_to 'Admin: Create Account', create_path, class: 'button' %>   <%= link_to 'Sign In', new_session_path, class: 'button' %>
     <% end %>
   </p>  
     </nav>

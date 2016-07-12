@@ -1,7 +1,7 @@
 class Employee < ApplicationRecord
 	has_secure_password
 	
-	#belongs_to :work_group
+	belongs_to :work_group
 	
 	def self.authenticate(email, password)
 		employee = Employee.find_by(email: email)
