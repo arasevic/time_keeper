@@ -5,13 +5,12 @@ class EmployeesController < ApplicationController
 
 	def show
 		@employee = Employee.find(params[:id])
-		@work_hours = WorkHour.new
+		
 	end
 
 	def new
 		@employee = Employee.new
-		@work_group = WorkGroup.new
-
+		
 	end
 
 	def edit 

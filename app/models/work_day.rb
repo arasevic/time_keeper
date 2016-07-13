@@ -2,14 +2,11 @@ class WorkDay < ApplicationRecord
 	#has_many :work_hours
 	#belongs_to :pay_period
 
-  WORK_HOUR_TYPES = [ 
-    'Regular',
-    'Vacation',
-    'Non-Paid Leave',
-    'Sick'
-  ]
+
+
+  DAY = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   
-  validates :work_hour, 
-            inclusion: { in: WORK_HOUR_TYPES }
+  validates :day, inclusion: { 
+    in: DAY }
 
 end

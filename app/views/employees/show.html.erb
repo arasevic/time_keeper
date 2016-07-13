@@ -4,27 +4,13 @@
     <h2><%= mail_to(@employee.email) %></h2>
   </header>
 
-<%= form_for(@work_hours) do |f| %>
-  <%#= render "shared/errors", object: @employee 
-pay_periods
-  %>
-  <fieldset>
-    <ol>
-      <li class="required">
-        <%= f.label :duration, "Number of Hours" %>
-        <%= f.text_field :duration, size: 40 %>
-      </li>
-      <li class="required">
-        <%= f.label :type %>
-        <%= f.text_field :type, size: 40 %>
-      </li>
-    </ol>
-    <p>
-      
-        <%= f.submit "Update Hours" %>
-      
-    </p>
-  </fieldset>
-<% end %>
-  
-</article>
+<footer>
+    
+    <nav>
+      <% if current_employee%>
+
+        <%= link_to 'View', employee_pay_period_path(@pay_period), class: 'button' %>
+        
+     <% end %>
+    </nav>
+</footer>
