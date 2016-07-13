@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712205226) do
+ActiveRecord::Schema.define(version: 20160713151611) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "first_name"
@@ -33,10 +33,28 @@ ActiveRecord::Schema.define(version: 20160712205226) do
     t.index ["work_group_id"], name: "index_employees_on_work_group_id"
   end
 
+  create_table "pay_periods", force: :cascade do |t|
+    t.boolean  "completed"
+    t.datetime "completed_date"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "employee_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["employee_id"], name: "index_pay_periods_on_employee_id"
+  end
+
   create_table "work_days", force: :cascade do |t|
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "day"
+    t.float    "over_time"
+    t.float    "regular"
+    t.float    "vacation"
+    t.float    "sick_leave"
+    t.float    "non_paid_leave"
+    t.float    "maternity_leave"
   end
 
   create_table "work_groups", force: :cascade do |t|
