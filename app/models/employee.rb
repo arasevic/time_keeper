@@ -1,6 +1,6 @@
 class Employee < ApplicationRecord
 	has_secure_password
-	
+	has_many :pay_periods
 	belongs_to :work_group
 	
 	def self.authenticate(email, password)

@@ -9,8 +9,17 @@
     <nav>
       <% if current_employee%>
 
-        <%= link_to 'View', employee_pay_period_path(@pay_period), class: 'button' %>
+        <%= form_for @employee.pay_periods do |f| %>
+
+ 
+        <%= f.label :start_date %>
+        <%= f.text_field :start_date, autofocus: true %>
+
+    
+<% end %>
+
         
      <% end %>
+
     </nav>
 </footer>

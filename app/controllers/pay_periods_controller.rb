@@ -29,7 +29,7 @@ end
 private
   
   def pay_period_params
-    params.require(:pay_period).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation)
+    params.require(:pay_period).permit(:start_date, :end_date, :completed_date, :completed, :employee_id)
   end
 
 

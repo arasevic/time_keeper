@@ -1,6 +1,6 @@
 class WorkDay < ApplicationRecord
-	#has_many :work_hours
-	#belongs_to :pay_period
+
+	belongs_to :pay_period
 
 
 
