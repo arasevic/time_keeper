@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
 	def show
 		@employee = Employee.find(params[:id])
 		#create helper to find right pay period to pass to redirect method
+		#flow log in drop box
 		@pay_period = @employee.pay_periods.find(params[:id])
 		redirect_to employee_pay_period_path(@employee, @pay_period)
 		
@@ -17,26 +18,23 @@ class EmployeesController < ApplicationController
 	end
 
 	def edit 
-		@employee = Employee.find(params[:id])
 	end
 
 	def update
+
 		@employee = Employee.find(params[:id])
-		if @employee.update(employee_params)
-      	redirect_to @employee, notice: "Account successfully updated!"
-   		else
-      	render :edit
-    	end
+		@pay_period = employee.work_day
+      	#redirect_to @employee, notice: "Account successfully updated!"
+   		#else
+      	#render :edit
+    	#end
 	end
 
 	def create
-		    @employee = Employee.new(employee_params)
-		    if @employee.save
-		      session[:employee_id] = @employee.id
-		      redirect_to @employee, notice: "New Employee #{employee.last_name}, #{employee.first_name} has been created"
-		    else
-		      render :new
-			end 
+		@employee = Employee.find(params[:employee_id])
+		@pay_period = @employee.pay_periods.find(params[:pay_period_id])
+		@work_day = @pay_period.work_days.find(params[:id])
+
   	end
 
 end
