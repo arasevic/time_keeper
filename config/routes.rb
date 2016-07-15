@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root  "employees#index"
   resources :employees do 
-  	resources :pay_period
+  	resources :pay_periods
   end
 
   get 'create' => "employees#new"

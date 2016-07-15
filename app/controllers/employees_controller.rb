@@ -5,6 +5,9 @@ class EmployeesController < ApplicationController
 
 	def show
 		@employee = Employee.find(params[:id])
+		#create helper to find right pay period to pass to redirect method
+		@pay_period = @employee.pay_periods.find(params[:id])
+		redirect_to employee_pay_period_path(@employee, @pay_period)
 		
 	end
 
@@ -41,7 +44,7 @@ end
 private
   
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation)
+    params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, :pay_period)
   end
 
   def require_correct_employee
