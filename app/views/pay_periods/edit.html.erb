@@ -1,2 +1,41 @@
+<%#below works but the rest doesnt%>
+
 <%= @work_day.regular  %>
 
+<%= form_for @work_day do |f| %>
+
+<%#for each of the days of the week for two weeks repeat%>
+
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :regular %>
+        <%= f.number_field :regular, size: 2 %>
+      </li>    
+      <li class="required">
+        <%= f.label :over_time %>
+        <%= f.number_field :over_time, size: 2 %>
+      </li>    
+      <li class="required">
+        <%= f.label :vacation %>
+        <%= f.number_field :vacation, size: 2 %>
+      </li>      
+      <li class="required">
+        <%= f.label :non_paid_leave %>
+        <%= f.number_field :non_paid_leave, size: 2 %>
+      </li>
+      <li class="required">
+        <%= f.label :sick %>
+        <%= f.number_field :sick, size: 2 %>
+      </li>
+      <li class="required">
+        <%= f.label :maternity %>
+        <%= f.number_field :maternity, size: 2 %>
+      </li>
+    </ol>
+    <p>
+      <%= f.submit %>
+      <%= link_to "Cancel", employee_path, class: 'button' %>
+    </p>
+  </fieldset>
+<% end %>

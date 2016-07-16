@@ -37,3 +37,9 @@ private
   def pay_period_params
     params.require(:pay_period).permit(:start_date, :end_date, :completed_date, :completed, :employee_id, :work_day)
   end
+
+    def work_day_params
+    params.require(:work_day).permit(:date, :over_time, :regular, :sick_leave, :non_paid_leave, :maternity_leave, :vacation, :pay_period_id, :day, :pay_period)
+  end
+
+ 
