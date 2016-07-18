@@ -1,8 +1,8 @@
 <%#below works but the rest doesnt%>
 
-<%= @work_day.regular  %>
 
-<%= form_for @work_day do |f| %>
+
+<%= form_for [@work_day, @employee] do |f| %>
 
 <%#for each of the days of the week for two weeks repeat%>
 

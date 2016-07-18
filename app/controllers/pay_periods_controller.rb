@@ -1,45 +1,46 @@
 class PayPeriodsController < ApplicationController
 
 	def index
-		@pay_periods= @employee.pay_periods
-	end	
+        @pay_periods= @employee.pay_periods
+    end    
 
-	def show
-		@employee = Employee.find(params[:employee_id])
-		@pay_period = @employee.pay_periods.find(params[:id])
-	end
+    def show
+        @employee = Employee.find(params[:employee_id])
+        @pay_period = @employee.pay_periods.find(params[:id])
+    end
 
-	def new
-		@pay_period= @employee.pay_periods.new
-	end
+    def new
+        pay_period_attributes = params.require(:pay_period).permit(:start_date, :end_date, work_day_attributes: [:over_time] )
+        @pay_period= @employee.pay_periods.new(pay_period_attributes)
+    end
 
-	def edit
-		@employee = Employee.find(params[:employee_id])
-		@pay_period = @employee.pay_periods.find(params[:id])
-		@work_day =  @pay_period.work_days.find(params[:id])
+    def edit 
+        @employee = Employee.find(params[:employee_id])
+        @pay_period = @employee.pay_periods.find(params[:id])
+    end
 
-	end
+    def update
+        @employee = Employee.find(params[:employee_id])
+        @pay_period = @employee.pay_periods.find(params[:id])
+        if @pay_period.update(pay_period_params)
+         #redirect_to @pay_period, notice: "Pay Period successfully updated!"
+              redirect_to employee_pay_period_path(@employee, @pay_period), notice: "You've successfully updated your timesheet!"
+          else
+         render :edit
+       end
+   #pay_period_params = params.require(:pay_period).permit!
+   #@pay_period.update(pay_period_params)
+    end
 
-	def update
-		@pay_period = @pay_period.work_day(params[:id])
-	#	if @pay_period.update(pay_period_params)
-     # 	redirect_to @pay_period, notice: "Pay Period successfully updated!"
-   	#	else
-     # 	render :edit
-    #	end
-	end
 
 
-end
 
-private
-  
-  def pay_period_params
-    params.require(:pay_period).permit(:start_date, :end_date, :completed_date, :completed, :employee_id, :work_day)
-  end
-
-    def work_day_params
-    params.require(:work_day).permit(:date, :over_time, :regular, :sick_leave, :non_paid_leave, :maternity_leave, :vacation, :pay_period_id, :day, :pay_period)
-  end
-
+    private
  
+     def pay_period_params
+ 
+       #params.require(:pay_period).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, work_day_attributes: [:id, :over_time, :name])
+         params.require(:pay_period).permit(:start_date, :end_date, work_days_attributes: [:over_time, :day, :id, :regular, :date])
+
+     end
+end

@@ -1,6 +1,8 @@
 module PayPeriodsHelper
-	def first_pay_period(pay_period)
-		date= "2016-07-10" + 2.weeks.to_s
+	def build_dates (pay_period)
+		start = Date.today 
+		start + 2.week = pay_period
+
 		
 		
 	end

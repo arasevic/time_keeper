@@ -1,6 +1,22 @@
 <header>
-  <h1>Pay Period for <%= link_to @employee.first_name, @employee %></h1>
-
-    <%= link_to 'Edit', edit_employee_pay_period_path(@employee), class: 'button' %>
+<%= form_for [@employee, @pay_period] do |f| %>
+    <div class="field">
+   <h1><%= @employee.first_name %></h1>
+ </div>
+ <%= f.fields_for :work_days do |ff| %>
+   <div class="field">
+     <%= ff.label :regular %>
+     <%= ff.number_field :regular, :step=> 0.1 %>
+   </div> 
+   <div class="field">
+     <%= ff.label :day %>
+     <%= ff.text_field :day %>
+   </div>  
+ <% end %>   
+ <div class="form-actions">
+   <%= f.button :submit %>
+ </div>
+<% end %>
+    
 </header>
 

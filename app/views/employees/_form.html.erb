@@ -1,22 +1,21 @@
-<%= form_for(@employee) do |f| %>
-  <%#= render "shared/errors", object: @employee %>
-  <fieldset>
-    <ol>
-      <li class="required">
-        <%= f.label :password, "New Password" %>
-        <%= f.password_field :password, size: 40 %>
-      </li>
-      <li class="required">
-        <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confirmation, size: 40 %>
-      </li>
-    </ol>
-    <p>
-      <% if @employee.new_record? %>
-        <%= f.submit "Create Account" %>
-      <% else %>
-        <%= f.submit "Update Account" %>
-      <% end %>
-    </p>
-  </fieldset>
+ <header>
+<%= form_for [@employee, @pay_period] do |f| %>
+    <div class="field">
+   <h1><%= @employee.first_name %></h1>
+ </div>
+ <%= f.fields_for :work_days do |ff| %>
+   <div class="field">
+     <%= ff.label :over_time %>
+     <%= ff.number_field :over_time, :step=> 0.1 %>
+   </div> 
+   <div class="field">
+     <%= ff.label :day %>
+     <%= ff.text_field :day %>
+   </div>  
+ <% end %>   
+ <div class="form-actions">
+   <%= f.button :submit %>
+ </div>
 <% end %>
+    
+</header>
