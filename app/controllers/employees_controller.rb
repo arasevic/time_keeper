@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+	  before_action :require_signin, except: [:new, :create]
+	  before_action :require_correct_employee, only: [:edit, :update, :destroy, :index]
 	def index
 		@employees= Employee.all
 	end	
@@ -37,15 +39,17 @@ class EmployeesController < ApplicationController
 
   	end
 
-end
+
 
 private
   
   def employee_params
     params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, :pay_period)
   end
-
-  def require_correct_employee
-    @employee = Employee.find(params[:id])
-    redirect_to root_url unless current_employee?(@employee)    
+  def current_employee
+    @current_employee ||= Employee.find(session[:employee_id]) if session[:employee_id]
   end
+
+  helper_method :current_employee
+
+end

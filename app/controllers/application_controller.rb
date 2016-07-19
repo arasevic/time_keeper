@@ -11,4 +11,13 @@ class ApplicationController < ActionController::Base
     	current_employee == employee
   	end
 
+private
+
+  def require_signin
+    unless current_employee
+      redirect_to new_session_url, alert: "Please sign in first!"
+    end
+  end
+
+
 end
