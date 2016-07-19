@@ -1,41 +1,48 @@
-<%#below works but the rest doesnt%>
-
-
-
-<%= form_for [@work_day, @employee] do |f| %>
-
-<%#for each of the days of the week for two weeks repeat%>
-
-  <fieldset>
-    <ol>
-      <li class="required">
-        <%= f.label :regular %>
-        <%= f.number_field :regular, size: 2 %>
-      </li>    
-      <li class="required">
-        <%= f.label :over_time %>
-        <%= f.number_field :over_time, size: 2 %>
-      </li>    
-      <li class="required">
-        <%= f.label :vacation %>
-        <%= f.number_field :vacation, size: 2 %>
-      </li>      
-      <li class="required">
-        <%= f.label :non_paid_leave %>
-        <%= f.number_field :non_paid_leave, size: 2 %>
-      </li>
-      <li class="required">
-        <%= f.label :sick %>
-        <%= f.number_field :sick, size: 2 %>
-      </li>
-      <li class="required">
-        <%= f.label :maternity %>
-        <%= f.number_field :maternity, size: 2 %>
-      </li>
-    </ol>
-    <p>
-      <%= f.submit %>
-      <%= link_to "Cancel", employee_path, class: 'button' %>
-    </p>
-  </fieldset>
+<header>
+<%= form_for [@employee, @pay_period] do |f| %>
+    <div class="field">
+   <h1><%= @employee.first_name %></h1>
+   <h2> Editing Pay Period <%= @pay_period.start_date %> to <%= @pay_period.end_date %></h2>
+ </div>
+ <%= f.fields_for :work_days do |ff| %>
+  <div class="field">
+     <%= ff.label :day %>
+     <%= ff.text_field :day %>
+   </div>  
+   <div class="field">
+     <%= ff.label :date %>
+     <%= ff.date_field :date %>
+   </div> 
+   <div class="field">
+     <%= ff.label :regular %>
+     <%= ff.number_field :regular, :step=> 0.1 %>
+   </div> 
+   <div class="field">
+     <%= ff.label :sick_leave %>
+     <%= ff.number_field :sick_leave, :step=> 0.1 %>
+   </div> 
+     <div class="field">
+     <%= ff.label :over_time %>
+     <%= ff.number_field :over_time, :step=> 0.1 %>
+   </div> 
+      <div class="field">
+     <%= ff.label :vacation %>
+     <%= ff.number_field :vacation, :step=> 0.1 %>
+   </div> 
+      <div class="field">
+     <%= ff.label :maternity_leave %>
+     <%= ff.number_field :maternity_leave, :step=> 0.1 %>
+   </div> 
+      <div class="field">
+     <%= ff.label :non_paid_leave %>
+     <%= ff.number_field :non_paid_leave, :step=> 0.1 %>
+   </div> 
+ <% end %>   
+ <div class="form-actions">
+   <%= f.button :submit %>
+ </div>
 <% end %>
+    
+</header>
+
+

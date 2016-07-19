@@ -1,10 +1,24 @@
 <article id="employee">
-  <header>
-    <h1><%= @employee.first_name %></h1>
-    <h2><%= mail_to(@employee.email) %></h2>
-  </header>
+ <header>
+   <h1>Timesheet for: <%= @employee.first_name %> 
+       <%= @employee.last_name %></h1>
+ </header>
+ <div class="dropdown">
+ <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Pay Period
+ <span class="caret"></span></button>
+ <ul class="dropdown-menu"> 
 
+<% @employee.pay_periods.each do |pp| %>
+ 	
+   <li><a href="#"><%= pp.start_date.to_s %> to <%=  pp.end_date.to_s%></a></li>
+
+   <%end%>
+ </ul>
+</div>
+<%= link_to "Enter Time for this pay period", edit_employee_pay_period_path(@employee, @pay_period) %>
 <footer>
-    
-    
+   
+   <nav>
+     
+   </nav>
 </footer>

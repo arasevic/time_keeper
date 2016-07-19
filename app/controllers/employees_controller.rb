@@ -8,7 +8,7 @@ class EmployeesController < ApplicationController
 		#create helper to find right pay period to pass to redirect method
 		#flow log in drop box
 		@pay_period = @employee.pay_periods.find(params[:id])
-		redirect_to employee_pay_period_path(@employee, @pay_period)
+		#redirect_to employee_pay_period_path(@employee, @pay_period)
 		
 	end
 
