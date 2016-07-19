@@ -25,11 +25,13 @@ class EmployeesController < ApplicationController
 	def update
 
 		@employee = Employee.find(params[:id])
-		@pay_period = employee.work_day
-      	#redirect_to @employee, notice: "Account successfully updated!"
-   		#else
-      	#render :edit
-    	#end
+		@pay_period = @employee.pay_periods.find(params[:employee][:pay_periods])
+		
+			redirect_to edit_employee_pay_period_path(@employee, @pay_period), notice: "Account successfully updated!"
+	
+	
+
+
 	end
 
 	def create
@@ -44,12 +46,11 @@ class EmployeesController < ApplicationController
 private
   
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, :pay_period)
+    params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, :pay_period, :employee)
   end
-  def current_employee
-    @current_employee ||= Employee.find(session[:employee_id]) if session[:employee_id]
-  end
-
-  helper_method :current_employee
+def require_correct_employee
+   @employee = Employee.find(params[:id])
+   redirect_to root_url unless current_employee?(@employee)    
+ end
 
 end
