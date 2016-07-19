@@ -2,11 +2,4 @@
   <h1>Pay Period for <%= link_to @employee.first_name, @employee %></h1>
 </header>
 
-<ol >
-  <% @pay_periods.each do |pay_period| %>
-    <li>
-      <%= link_to pay_period.employee.first_name, pay_period.employee %>
-        
-    </li>
-  <% end %>
-</ol>
+

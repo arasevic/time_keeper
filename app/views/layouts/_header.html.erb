@@ -1,8 +1,8 @@
 <header id="page-header">
   <div id="masthead">
    
-    <nav>
-       <p>
+    <nav class="navbar navbar-default">
+        <div class="navbar navbar-header">
     
     <% if current_employee %>
     <%= link_to current_employee.first_name, current_employee %> |
@@ -11,6 +11,7 @@
     <% else %>
     <%= link_to 'Admin: Create Account', create_path, class: 'button' %>   <%= link_to 'Sign In', new_session_path, class: 'button' %>
     <% end %>
-  </p>  
+  </div>
+   <%= image_tag("ideacrew-logo.png", size: "150x40", class: "pull-right") %>  
     </nav>
   </div>

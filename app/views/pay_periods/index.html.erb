@@ -8,6 +8,7 @@
 <%= form_for @employee do |f| %>
 
   <div class="form-group">
+    <%= f.hidden_field :asdsadas, value: '123123' %>
     <%= f.label "Select Pay Period" %>
     <%= f.select :pay_periods, options_for_select(generate_pay_periods(@employee)), class: 'form-control'%>
   </div>
