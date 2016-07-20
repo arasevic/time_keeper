@@ -26,10 +26,9 @@ class EmployeesController < ApplicationController
 
 		@employee = Employee.find(params[:id])
 		@pay_period = @employee.pay_periods.find(params[:employee][:pay_periods])
-		
+	
 			redirect_to edit_employee_pay_period_path(@employee, @pay_period), notice: "Account successfully updated!"
-	
-	
+
 
 
 	end
@@ -46,7 +45,7 @@ class EmployeesController < ApplicationController
 private
   
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, :pay_period, :employee)
+    params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, :employee)
   end
 def require_correct_employee
    @employee = Employee.find(params[:id])

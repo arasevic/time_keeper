@@ -1,47 +1,63 @@
-
-
-<header>
-   <%= render "shared/errors", object: @pay_period %>
-<%= form_for [@employee, @pay_period] do |f| %>
-    <div class="field">
-   <h1><%= @employee.first_name %></h1>
+</header>
+<body>
+  <%= form_for [@employee, @pay_period] do |f| %>
+     <h1><%= @employee.first_name %></h1>
    <h2> Editing Pay Period <%= @pay_period.start_date %> to <%= @pay_period.end_date %></h2>
- </div>
- <%= f.fields_for :work_days do |ff| %>
- 
- <table>
-  <class="field">
-     <strong><%= ff.label :day %></strong>
-     <%= ff.text_field :day %>
- 
-      <class="field">
-     <%= ff.label :date %>
-     <%= ff.date_field :date %>
-      <class="field">
-     <%= ff.label :regular %>
-     <%= ff.number_field :regular, :step=> 0.1 %>
-     <class="field">
-     <%= ff.label :sick_leave %>
-     <%= ff.number_field :sick_leave, :step=> 0.1 %>
-     <class="field">
-     <%= ff.label :over_time %>
-     <%= ff.number_field :over_time, :step=> 0.1 %>
-   <class="field">
-     <%= ff.label :vacation %>
-     <%= ff.number_field :vacation, :step=> 0.1 %>
-   <class="field">
-     <%= ff.label :maternity_leave %>
-     <%= ff.number_field :maternity_leave, :step=> 0.1 %>
-   <class="field">
-     <%= ff.label :non_paid_leave %>
-     <%= ff.number_field :non_paid_leave, :step=> 0.1 %>
- </table>
- <% end %>   
+   <%= f.fields_for :work_days do |ff| %>
+  <table class="table">
+
+  <thead>
+    <tr>
+      
+      <th><%= ff.label :day %></th>
+      <th><%= ff.label :date %></th>
+      <th><%= ff.label :regular %></th>
+      <th><%= ff.label :sick_leave %></th>
+      <th><%= ff.label :over_time %></th>
+      <th><%= ff.label :vacation %></th>
+      <th><%= ff.label :maternity_leave %></th>
+      <th><%= ff.label :non_paid_leave %></th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+      <td>
+          <%= ff.text_field :day %>
+      </td>
+      <td>
+          <%= ff.text_field :date %>
+      </td>
+      <td>
+        <%= ff.number_field :regular, :step=> 0.1 %>
+      </td>
+      <td>
+        <%= ff.number_field :sick_leave, :step=> 0.1 %>
+      </td>
+      <td>
+        <%= ff.number_field :over_time, :step=> 0.1 %>
+      </td>
+      <td>
+        <%= ff.number_field :vacation, :step=> 0.1 %>
+      </td>
+      <td>
+        <%= ff.number_field :maternity_leave, :step=> 0.1 %>
+      </td>
+      <td>
+        <%= ff.number_field :non_paid_leave, :step=> 0.1 %>
+      </td>
+
+  </tbody>
+
+</table>
+
+<% end %>
+
  <div class="form-actions">
    <%= f.button :submit %>
  </div>
+
 <% end %>
-    
-</header>
-<body>
+
+</body>
 

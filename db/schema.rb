@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715181003) do
+ActiveRecord::Schema.define(version: 20160719212835) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "first_name"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160715181003) do
     t.float    "sick_leave"
     t.float    "non_paid_leave"
     t.float    "maternity_leave"
-    t.         "pay_period"
     t.integer  "pay_period_id"
     t.index ["pay_period_id"], name: "index_work_days_on_pay_period_id"
   end

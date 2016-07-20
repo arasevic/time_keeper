@@ -40,7 +40,7 @@ class PayPeriodsController < ApplicationController
      def pay_period_params
  
        #params.require(:pay_period).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, work_day_attributes: [:id, :over_time, :name])
-         params.require(:pay_period).permit(:start_date, :end_date, work_days_attributes: [:over_time, :day, :id, :regular, :date])
+         params.require(:pay_period).permit(:start_date, :end_date, work_days_attributes: [:over_time, :day, :id, :regular, :date, :sick_leave, :vacation, :maternity_leave, :non_paid_leave])
 
      end
 end
