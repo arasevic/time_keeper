@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
   			session[:employee_id] = employee.id
      		flash[:notice] = "Welcome back, #{employee.first_name}!"
      		redirect_to employee
+
+      
   		else
   			flash.now[:alert] = "Invalid email/password combination!"
     		render :new

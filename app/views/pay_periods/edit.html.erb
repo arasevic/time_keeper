@@ -37,6 +37,9 @@
    <class="field">
      <%= ff.label :non_paid_leave %>
      <%= ff.number_field :non_paid_leave, :step=> 0.1, class: "reg-hours" %>
+   <class="field">
+     <%= ff.label :daily_total %>
+     <%= ff.number_field totals_per_day (ff), class: "reg-hours" %>
  </div>
  </table>
  <% end %>   

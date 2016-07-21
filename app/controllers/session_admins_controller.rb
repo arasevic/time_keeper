@@ -1,0 +1,2 @@
+class SessionAdminsController < ApplicationController
+end

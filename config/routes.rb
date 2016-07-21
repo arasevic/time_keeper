@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   resource :session
 
+  get 'create' => "admins#new"
+
+  resource :session_admin
+
   get "signin" => "sessions#new"
 
   resource :work_hours
