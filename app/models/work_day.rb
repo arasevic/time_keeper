@@ -10,7 +10,6 @@ class WorkDay < ApplicationRecord
     in: DAY }
 
 	def totals_per_day (w)
-
 	WorkDay.each do 
             w = :regular + :vacation + :sick_leave + :non_paid_leave + :maternity_leave + :over_time
         end    
