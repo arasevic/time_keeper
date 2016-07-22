@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
 	  before_action :require_signin, except: [:new, :create]
-	  before_action :require_correct_employee, only: [:edit, :update, :destroy, :index]
+	  before_action :require_correct_employee, only: [:edit, :update, :destroy]
 	def index
 		@employees= Employee.all
 	end	
@@ -9,7 +9,7 @@ class EmployeesController < ApplicationController
 		@employee = Employee.find(params[:id])
 		#create helper to find right pay period to pass to redirect method
 		#flow log in drop box
-		@pay_period = @employee.pay_periods.find(params[:id])
+
 		#redirect_to employee_pay_period_path(@employee, @pay_period)
 		
 	end
@@ -47,9 +47,9 @@ private
   def employee_params
     params.require(:employee).permit(:first_name, :last_name, :hired_date, :email, :password, :password_confirmation, :employee)
   end
-def require_correct_employee
-   @employee = Employee.find(params[:id])
-   redirect_to root_url unless current_employee?(@employee)    
- end
+	def require_correct_employee
+   		@employee = Employee.find(params[:id])
+   		redirect_to root_url unless current_employee?(@employee)    
+	end
 
 end

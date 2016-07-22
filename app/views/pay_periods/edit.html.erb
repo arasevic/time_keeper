@@ -13,36 +13,55 @@
  <table>
 <div class="pay-period-edit">
   <class="field">
-     <strong><%= ff.label :day %></strong>
-     <%= ff.text_field :day %>
- 
+     <%= ff.label :day %>
+     <%= ff.text_field :day, class: "work-day", :readonly => true %>
       <class="field">
      <%= ff.label :date %>
-     <%= ff.date_field :date, class: "work-day-date" %>
+     <%= ff.date_field :date, class: "work-day-date", :readonly => true %>
       <class="field">
      <%= ff.label :regular %>
-     <%= ff.number_field :regular, :step=> 0.1, class: "reg-hours"%>
+     <%= ff.number_field :regular, :step=> 0.5, class: "reg-hours"%>
      <class="field">
      <%= ff.label :sick_leave %>
-     <%= ff.number_field :sick_leave, :step=> 0.1, class: "reg-hours" %>
+     <%= ff.number_field :sick_leave, :step=> 0.5, class: "reg-hours" %>
      <class="field">
      <%= ff.label :over_time %>
-     <%= ff.number_field :over_time, :step=> 0.1, class: "reg-hours" %>
+     <%= ff.number_field :over_time, :step=> 0.5, class: "reg-hours" %>
    <class="field">
      <%= ff.label :vacation %>
-     <%= ff.number_field :vacation, :step=> 0.1, class: "reg-hours" %>
+     <%= ff.number_field :vacation, :step=> 0.5, class: "reg-hours" %>
    <class="field">
      <%= ff.label :maternity_leave %>
-     <%= ff.number_field :maternity_leave, :step=> 0.1, class: "reg-hours" %>
+     <%= ff.number_field :maternity_leave, :step=> 0.5, class: "reg-hours" %>
    <class="field">
      <%= ff.label :non_paid_leave %>
-     <%= ff.number_field :non_paid_leave, :step=> 0.1, class: "reg-hours" %>
+     <%= ff.number_field :non_paid_leave, :step=> 0.5, class: "reg-hours" %>
    <class="field">
      <%= ff.label :daily_total %>
-     <%= ff.number_field totals_per_day (ff), class: "reg-hours" %>
+     <%= ff.number_field :daily_total, class: "update-daily-total", :readonly => true %>
  </div>
  </table>
  <% end %>   
+ <hr>
+ <h3> Pay Period Totals </h3>
+  <class = "field">
+    <%= f.label :regular_total %>
+    <%= f.number_field :regular_total, class: "update-daily-total", :readonly => true %>
+  <class = "field">
+    <%= f.label :sick_leave_total %>
+    <%= f.number_field :sick_leave_total, class: "update-daily-total", :readonly => true %>
+  <class = "field">
+    <%= f.label :over_time_total %>
+    <%= f.number_field :over_time_total, class: "update-daily-total", :readonly => true %>  
+  <class = "field">
+    <%= f.label :vacation_total %>
+    <%= f.number_field :vacation_total, class: "update-daily-total", :readonly => true %>
+  <class = "field">
+    <%= f.label :maternity_leave_total %>
+    <%= f.number_field :maternity_leave_total, class: "update-daily-total", :readonly => true %>
+    <class = "field">
+    <%= f.label :non_paid_leave_total %>
+    <%= f.number_field :non_paid_leave_total, class: "update-daily-total", :readonly => true %>
  <div class="form-actions">
    <%= f.button :submit %>
  </div>

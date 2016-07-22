@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721170306) do
+ActiveRecord::Schema.define(version: 20160721193702) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "first_name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160721170306) do
     t.integer  "work_group_id"
     t.         "password"
     t.string   "password_digest"
+    t.string   "role"
     t.index ["work_group_id"], name: "index_employees_on_work_group_id"
   end
 
@@ -41,8 +42,14 @@ ActiveRecord::Schema.define(version: 20160721170306) do
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "employee_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.float    "regular_total"
+    t.float    "vacation_total"
+    t.float    "maternity_leave_total"
+    t.float    "over_time_total"
+    t.float    "sick_leave_total"
+    t.float    "non_paid_leave_total"
     t.index ["employee_id"], name: "index_pay_periods_on_employee_id"
   end
 

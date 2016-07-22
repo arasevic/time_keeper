@@ -24,7 +24,7 @@ class PayPeriodsController < ApplicationController
         @pay_period = @employee.pay_periods.find(params[:id])
         if @pay_period.update(pay_period_params)
          #redirect_to @pay_period, notice: "Pay Period successfully updated!"
-              redirect_to employee_pay_period_path(@employee, @pay_period), notice: "You've successfully updated your timesheet!"
+              redirect_to edit_employee_pay_period_path(@employee, @pay_period), notice: "You've successfully updated your timesheet!"
           else
          render :edit
        end
