@@ -35,7 +35,7 @@ Employee.create!([
     password: 'secret',
     hired_date: '2016-02-02',
     work_group_id: '1',
-    role: "employee"
+    role: "contractor"
   },
   {
     first_name: 'Matt',
@@ -44,7 +44,7 @@ Employee.create!([
     password: 'secret',
     hired_date: '2016-03-03',
     work_group_id: '2',
-    role: "employee"
+    role: "contractor"
   },
   {
     first_name: 'James',
@@ -53,7 +53,7 @@ Employee.create!([
     password: 'secret',
     hired_date: '2016-04-04',
     work_group_id: '3',
-    role: "employee"
+    role: "contractor"
   }
 ])
 

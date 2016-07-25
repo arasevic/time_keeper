@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160721193702) do
     t.datetime "updated_at",      null: false
     t.integer  "work_group_id"
     t.string   "password_digest"
-    t.string   "role"
+    t.integer  "role"
     t.index ["work_group_id"], name: "index_employees_on_work_group_id"
   end
 
