@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20160721193702) do
     t.string   "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.         "password"
     t.string   "password_digest"
   end
 
@@ -30,7 +29,6 @@ ActiveRecord::Schema.define(version: 20160721193702) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "work_group_id"
-    t.         "password"
     t.string   "password_digest"
     t.string   "role"
     t.index ["work_group_id"], name: "index_employees_on_work_group_id"
@@ -64,7 +62,6 @@ ActiveRecord::Schema.define(version: 20160721193702) do
     t.float    "sick_leave"
     t.float    "non_paid_leave"
     t.float    "maternity_leave"
-    t.         "pay_period"
     t.integer  "pay_period_id"
     t.float    "daily_total"
     t.index ["pay_period_id"], name: "index_work_days_on_pay_period_id"
