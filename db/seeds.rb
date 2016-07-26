@@ -5,16 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Admin.create(
+    first_name: 'Lily',
+    last_name: 'Li',
+    email: 'lily@example.com'
+)
 
 WorkGroup.create!([
   {
-    name: 'Alpha'
+    name: 'Alpha',
+    admin_id: "1"
   },
   {
-    name: 'Beta'
+    name: 'Beta',
+    admin_id: "1"
   },
   {
-    name: 'Gamma'
+    name: 'Gamma',
+    admin_id: "1"
   }
 ])
 
