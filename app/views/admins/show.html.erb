@@ -1,0 +1,7 @@
+<h3>Work Group: <%= @work_group.name %> </h3>
+<h4> <%= @work_group.name %>'s employees: </h4>
+<% @work_group.employees.each do |employee| %>
+	<% if employee.contractor? %>
+		<%= employee.first_name %>
+	<% end %>
+<% end %>
