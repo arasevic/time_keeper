@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get "signin" => "sessions#new"
 
   resource :work_hours
+  resources :admins
 end
