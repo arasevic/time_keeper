@@ -1,13 +1,7 @@
-Feature: Admin login
+Feature: Employee login
 
-	Scenario: Succesful login as an employee
-		Given that I am an employee
-		When I naviage to the login page 
+	Scenario: Successful login as an employee
+		Given that I am an employee with the role of a contractor
+		When I navigate to the login page
 		And provide my correct email and password
-		Then I will be directed to add work hours
-
-	Scenario: Unsuccesful login as an employee
-		Given that I am an employee
-		When I naviage to the login page
-		And provide an incorrect email or password
-		Then I will be prompted to try again
+		Then I should see "Welcome back, Kevin!"

@@ -1,15 +1,15 @@
 
 
 <header>
- 
+
    <%= render "shared/errors", object: @pay_period %>
 <%= form_for [@employee, @pay_period] do |f| %>
-    
+
    <h1><%= @employee.first_name %></h1>
    <h2> Editing Pay Period <%= @pay_period.start_date %> to <%= @pay_period.end_date %></h2>
  </div>
  <%= f.fields_for :work_days do |ff| %>
- 
+
  <table>
 <div class="pay-period-edit">
   <class="field">
@@ -41,7 +41,7 @@
      <%= ff.number_field :daily_total, class: "update-daily-total", :readonly => true %>
  </div>
  </table>
- <% end %>   
+ <% end %>
  <hr>
  <h3> Pay Period Totals </h3>
   <class = "field">
@@ -52,7 +52,7 @@
     <%= f.number_field :sick_leave_total, class: "update-daily-total", :readonly => true %>
   <class = "field">
     <%= f.label :over_time_total %>
-    <%= f.number_field :over_time_total, class: "update-daily-total", :readonly => true %>  
+    <%= f.number_field :over_time_total, class: "update-daily-total", :readonly => true %>
   <class = "field">
     <%= f.label :vacation_total %>
     <%= f.number_field :vacation_total, class: "update-daily-total", :readonly => true %>
@@ -63,7 +63,7 @@
     <%= f.label :non_paid_leave_total %>
     <%= f.number_field :non_paid_leave_total, class: "update-daily-total", :readonly => true %>
  <div class="form-actions">
-   <%= f.button :submit %>
+   <%= f.button :submit %> &nbsp &nbsp  <%= link_to "Back to my main page", employee_path(@employee) %>
  </div>
 <% end %>
 </div>

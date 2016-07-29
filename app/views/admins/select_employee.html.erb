@@ -1,0 +1,16 @@
+<h3>
+  Work Group: <%= @work_group.name %>
+</h3>
+
+<div class="container">
+<%= form_for @work_group do |f| %>
+
+ <div class="form-group">
+   <%= f.label "Select Employee" %>
+   <%= f.select :employees, options_for_select(generate_employee_roster(@work_group)), class: 'form-control'%>
+ </div>
+ <div>
+   <%= f.submit 'view pay period', class: 'btn btn-primary btn-sm' %>
+ </div>
+<% end %>
+</div>

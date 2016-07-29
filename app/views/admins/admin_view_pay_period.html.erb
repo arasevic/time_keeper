@@ -1,0 +1,34 @@
+<h3> <%= @employee.first_name %> <%= @employee.last_name %> </h3>
+<h4> From <%= @pay_period.start_date %> to <%= @pay_period.end_date %>
+<hr>
+<% @days.each do |work_day| %>
+  <div>
+    <%= work_day.date %> <%= work_day.day %>
+    <br/>
+    <% if work_day.regular %>
+      Regular Hours: <%= work_day.regular %>
+      <br/>
+    <% end %>
+    <% if work_day.over_time %>
+      Over-Time Hours: <%= work_day.over_time %>
+      <br/>
+    <% end %>
+    <% if work_day.sick_leave %>
+      Sick-leave Hours: <%= work_day.sick_leave %>
+      <br/>
+    <% end %>
+    <% if work_day.vacation %>
+      Vacation Hours: <%= work_day.vacation %>
+      <br/>
+    <% end %>
+    <% if work_day.non_paid_leave %>
+      Non Paid Leave Hours: <%= work_day.non_paid_leave %>
+      <br/>
+    <% end %>
+    <% if work_day.daily_total %>
+      Total Daily Hours: <%= work_day.daily_total %>
+    <% end %>
+  </div>
+  <hr>
+<% end %>
+Pay Period Totals:

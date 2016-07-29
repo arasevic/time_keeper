@@ -111,97 +111,97 @@ WorkDay.create!([
   {
     date: '2016-07-10',
     day: 'Sunday',
-    pay_period_id: '1'
+    pay_period_id: 2
   },
   {
     date: '2016-07-11',
     day: 'Monday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-12',
     day: 'Tuesday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-13',
     day: 'Wednesday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-14',
     day: 'Thursday',
     sick_leave: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-15',
     day: 'Friday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-16',
     day: 'Saturday',
     vacation: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-17',
     day: 'Sunday',
     over_time: 1,
     maternity_leave: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-18',
     day: 'Monday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1,
+    pay_period_id: 2
   },
   {
     date: '2016-07-19',
     day: 'Tuesday',
     over_time: 1,
     non_paid_leave: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-20',
     day: 'Wednesday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-21',
     day: 'Thursday',
     sick_leave: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-22',
     day: 'Friday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   },
   {
     date: '2016-07-23',
     day: 'Saturday',
     over_time: 1,
     regular: 8,
-    pay_period_id: 1
+    pay_period_id: 2
   }
 ])

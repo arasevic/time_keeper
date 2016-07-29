@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :admin do
-    first_name "MyString"
-    last_name "MyString"
-    email "MyString"
+    first_name "Nikola"
+    last_name "Rasevic"
+    email "nikola@rasevic.com"
   end
 end

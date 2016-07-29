@@ -1,0 +1,13 @@
+<h3>Pay periods for: <%= @employee.first_name %> <%= @employee.last_name %> </h3>
+<div class="container">
+<%= form_for @employee, url: admin_view_pay_period_path(@admin,@employee), method: :get do |f| %>
+
+ <div class="form-group">
+   <%= f.label "Select Pay Period" %>
+   <%= f.select :pay_periods, options_for_select(generate_pay_periods(@employee)), class: 'form-control'%>
+ </div>
+ <div>
+   <%= f.submit 'Edit/View Timesheet', class: 'btn btn-primary btn-sm' %>
+ </div>
+<% end %>
+</div>

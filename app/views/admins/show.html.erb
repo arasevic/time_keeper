@@ -1,17 +1,12 @@
  <header>
-   <h1>Employee roster for: <%= @admin.first_name %>
-       <%= @admin.last_name %>
-   </h1>
-
-       <h2> <%= @work_group.name %>'s employees:
-    </h2>
-    <h3>
-    </h3>
-
-       <% @work_group.employees.each do |employee| %>
-       <% if employee.contractor? %>
-       <%= employee.first_name %>
-
-       <%end%>
-       <%end%>
+   <h3>Admin portal for: <%= @admin.first_name %> <%= @admin.last_name %>
+   </h3>
+   <br/>
+   <h4>
+   <%= @admin.first_name %>'s Work Groups:
+   </h4>
+   <% @wgs.each do |work_group| %>
+      <%= link_to work_group.name, admin_work_groups_path(@admin,work_group) %>
+      <br/>
+   <% end %>
  </header>
