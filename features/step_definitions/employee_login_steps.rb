@@ -16,7 +16,7 @@ Given(/^that I am an employee with the role of a contractor$/) do
   admin = FactoryGirl.create(:admin)
   wg = FactoryGirl.build(:work_group)
   wg.admin = admin
-  admin.save!
+  wg.save!
   employee = FactoryGirl.build(:employee)
   employee.work_group = wg
   employee.save!
@@ -41,4 +41,10 @@ Then(/^I should see "([^"]*)"$/) do |arg1|
   # Write code here that turns the phrase above into concrete actions
   screenshot("failing step")
   page.should have_content(arg1)
+end
+
+When(/^provide an incorrect email or password$/) do
+  fill_in :email, with: "kevin.wei@foo.com"
+  fill_in :password, with: "foo"
+  click_button :sign_in
 end

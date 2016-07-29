@@ -15,6 +15,7 @@ class EmployeesController < ApplicationController
 			@admin = Admin.find_by(email:@employee.email)
 			redirect_to admin_path(@admin)
 		end
+
 	end
 
 	def new
